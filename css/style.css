@@ -1,0 +1,178 @@
+*{
+    box-sizing: border-box;
+}
+body{
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+justify-content: center;
+background-color: #111;
+font-family:Arial, Helvetica, sans-serif;
+}
+
+.profile-box{
+    position: relative;
+    padding: 20px 15px;
+    background-color: transparent;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, .5);
+    border-radius: 10px;
+    text-align: center;
+    overflow: hidden;
+
+}
+
+.profile-box::before{
+    content: "";
+    position: absolute;
+    left:0px;
+top: 0px;
+width: 100%;
+height:100%;
+background: repeating-conic-gradient(from 0deg,var(--color) 0%,var(--color) 10%, transparent 10%, transparent 50%);
+transform: scale(1.5,1.5);
+z-index: -2;
+animation: profile-box-animation 4s  linear infinite ;
+
+}
+
+@keyframes profile-box-animation {
+    0%{
+        transform: rotate(0deg) scale(1.5,1.5);
+    }
+    100%{
+        transform: rotate(360deg) scale(1.5,1.5);
+    }
+}
+.profile-box::after{
+    content:"";
+    position: absolute;
+    inset:2px;
+background-color: #222;
+    z-index: -1;
+    border-radius: 10px;
+}
+
+.profile-box .profile-img {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.profile-box .profile-img .img{
+position: relative;
+width:400px;
+height: 400px;
+background-color: #111;
+box-shadow: 0px 0px 15px rgba(0, 0, 0, .5);
+border-radius: 50%;
+}
+.profile-box .profile-img .img::before{
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width:100%;
+    height:100%;
+    background: repeating-conic-gradient(from 0deg,var(--color) 0%,var(--color)20%,transparent 20%,transparent 33.3%);
+border-radius: 50%;
+transform-origin: center center;
+animation: img-animation 2s linear infinite;
+}
+
+@keyframes img-animation {
+    100%{
+        transform: rotate(360deg);
+    }
+}
+
+
+.profile-box .profile-img .img::after{
+    content: "";
+    position: absolute;
+    inset: 2px ;
+    background: url(../image/WhatsApp\ Image\ 2024-03-28\ at\ 16.18.42_7ee974aa.jpg);
+background-size: 100% 100%;
+border-radius: 50%;
+}
+
+.profile-box .profile-name{
+    font-size: 18pt;
+    color: #fff;
+    text-transform: capitalize;
+    text-shadow: 0px 0px 0px #000;
+    margin: 0px;
+    margin-bottom: 5px;
+
+}
+.profile-box .profile-job{
+    font-size: 12pt;
+    color: #fff;
+    opacity: .5;
+    margin: 0px;
+    margin-bottom: 20px;
+    
+}
+
+.profile-box .profile-socials{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+}
+
+.profile-box .profile-socials .social{
+    position: relative;
+    flex: 0 ,0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    background: transparent;
+     color: #fff;
+     margin-inline: 15px;
+     border-radius: 50% ; 
+     cursor: pointer;
+     text-decoration: none;
+
+}
+.profile-box .profile-socials .social::before{
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width:100%;
+    height:100%;
+    background: repeating-conic-gradient(from 0deg,var(--color) 0%,var(--color)20%,transparent 20%,transparent 33.3%);
+    border-radius: 50%;
+    transform-origin: center center;
+    animation: img-animation 2s linear infinite;
+    z-index: 0;
+}
+.profile-box .profile-socials .social:hover::before {
+    animation: img-animation .8s linear infinite;
+ 
+}
+.profile-box .profile-socials .social:active:before {
+    box-shadow: 0px 0px 10px #000;
+}
+
+ 
+.profile-box .profile-socials .social::after{
+    content: "";
+    position: absolute;
+    width: calc(100% - 2px);
+    height: calc(100% - 2px);
+background-color: #111;
+    border-radius: 50%;
+    z-index: 1;
+
+}
+.profile-box .profile-socials .social .icon{
+    position: relative;
+    z-index: 2;
+
+}
+
